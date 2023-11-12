@@ -75,6 +75,10 @@ This repository contains the source code for Flixxit, an online streaming platfo
     - Implement a content moderation system that allows users to flag inappropriate or offensive content.
     - Ensure prompt review and appropriate action to maintain a positive and safe user experience.
 
+## Responsive Design
+
+The website is fully responsive, ensuring a seamless and optimized user experience across various devices and screen sizes.
+
 ## Getting Started
   
 >[Working Demo]()
