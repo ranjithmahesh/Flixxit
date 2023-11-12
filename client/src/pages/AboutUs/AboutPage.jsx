@@ -4,51 +4,79 @@ import "./AboutPage.scss";
 import NavBar from "../../components/navbar/NavBar";
 
 const AboutPage = () => {
-  const data = [
-    {
-      title: "User Authentication",
-      description: [
-        "Enable users to sign up and create accounts.",
-        "Allow users to log in using their email and password.",
-      ],
-    },
-    {
-      title: "Browse Functionality",
-      description: [
-        "Facilitate exploration of movies or TV shows based on specific criteria.",
-        "Implement categorization features for organizing content based on user preferences.",
-      ],
-    },
-    {
-      title: "Detailed Viewing",
-      description: [
-        "Provide detailed information about movies or TV shows for user reference.",
-        "Allow users to add items to a personal list for future viewing.",
-      ],
-    },
-    {
-      title: "List Management",
-      description: [
-        "Enable users to create and manage a personal watchlist.",
-        "Allow users to mark movies or TV shows as watched for tracking purposes.",
-      ],
-    },
-    {
-      title: "Search Functionality",
-      description: [
-        "Implement a robust search feature for finding movies or TV shows by name.",
-        "Enhance user experience with efficient and accurate search results.",
-      ],
-    },
-    {
-      title: "Watch Later",
-      description: [
-        "Introduce the ability for users to add a particular movie to their personal watchlist.",
-        "Enhance future planning for users by incorporating this feature.",
-      ],
-    },
-  ];
-
+ const data = [
+   {
+     title: "User Authentication",
+     description: [
+       "Enable users to sign up and create accounts.",
+       "Allow users to log in using their email and password.",
+       "Utilize CryptoJS for additional encryption of user passwords.",
+     ],
+   },
+   {
+     title: "Browse Functionality",
+     description: [
+       "Facilitate exploration of movies or TV shows based on specific criteria.",
+       "Implement categorization features for organizing content based on user preferences.",
+     ],
+   },
+   {
+     title: "Detailed Viewing",
+     description: [
+       "Provide detailed information about movies or TV shows for user reference.",
+       "Allow users to add items to a personal list for future viewing.",
+     ],
+   },
+   {
+     title: "List Management",
+     description: [
+       "Enable users to create and manage a personal watchlist.",
+       "Allow users to mark movies or TV shows as watched for tracking purposes.",
+     ],
+   },
+   {
+     title: "Search Functionality",
+     description: [
+       "Implement a robust search feature for finding movies or TV shows by name.",
+       "Enhance user experience with efficient and accurate search results.",
+     ],
+   },
+   {
+     title: "Watch Later",
+     description: [
+       "Introduce the ability for users to add a particular movie to their personal watchlist.",
+       "Enhance future planning for users by incorporating this feature.",
+     ],
+   },
+   {
+     title: "Like and Dislike",
+     description: [
+       "Allow users to express their preference by liking or disliking content.",
+       "Implement intuitive like and dislike buttons for user interaction.",
+     ],
+   },
+   {
+     title: "State Management with Redux Toolkit",
+     description: [
+       "Utilize Redux Toolkit for efficient state management in the application.",
+       "Persist user authentication token using Redux for a seamless user experience.",
+     ],
+   },
+   {
+     title: "HTTP Requests with Axios",
+     description: [
+       "Handle HTTP requests in the application using Axios.",
+       "Streamline communication with the server for data retrieval and updates.",
+     ],
+   },
+   {
+     title: "Express Framework for Backend",
+     description: [
+       "Implement the backend of the application using the Express framework.",
+       "Leverage Express to handle server-side logic and routing.",
+     ],
+   },
+ ];
   return (
     <>
       <NavBar />

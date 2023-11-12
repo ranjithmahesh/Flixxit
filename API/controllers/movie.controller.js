@@ -1,77 +1,69 @@
 const Movie = require("../models/movie.model");
-const CryptoJS = require("crypto-js");
-const jwt = require("jsonwebtoken");
+const verify = require("../utility/verifyToken");
 
-//UpdateUser
+
+
+
+
 exports.CreateMovie = async (req, res) => {
   if (req.user.isAdmin) {
-    const newMove = await Movie(req.body);
+    const newMovie = new Movie(req.body);
     try {
-      const savedMove = await newMove.save();
-      res.status(201).json(savedMove);
-    } catch (error) {
-      console.log("CreateMovie", error);
-      res.status(500).json(error);
+      const savedMovie = await newMovie.save();
+      res.status(201).json(savedMovie);
+    } catch (err) {
+      res.status(500).json(err);
     }
   } else {
-    console.log("You are not allowed!");
-    res.status(500).json("You are not allowed!");
+    res.status(403).json("You are not allowed!");
   }
 };
 
-//UpdateMovie
 exports.UpdateMovie = async (req, res) => {
   if (req.user.isAdmin) {
     try {
-      const UpdateMove = await Movie.findByIdAndUpdate(
+      const updatedMovie = await Movie.findByIdAndUpdate(
         req.params.id,
         {
           $set: req.body,
         },
         { new: true }
       );
-
-      res.status(201).json(UpdateMove);
-    } catch (error) {
-      console.log("UpdateMove", error);
-      res.status(500).json(error);
+      res.status(200).json(updatedMovie);
+    } catch (err) {
+      res.status(500).json(err);
     }
   } else {
-    console.log("You are not allowed!");
-    res.status(500).json("You are not allowed!");
+    res.status(403).json("You are not allowed!");
   }
 };
-//DeleteMovie
+
+
 exports.DeleteMovie = async (req, res) => {
   if (req.user.isAdmin) {
     try {
       await Movie.findByIdAndDelete(req.params.id);
-
-      res.status(201).json("Movie deleted");
-    } catch (error) {
-      console.log("DeleteMovie", error);
-      res.status(500).json(error);
+      res.status(200).json("The movie has been deleted...");
+    } catch (err) {
+      res.status(500).json(err);
     }
   } else {
-    console.log("You are not allowed!");
-    res.status(500).json("You are not allowed!");
+    res.status(403).json("You are not allowed!");
   }
 };
 
-//Get Movie
-exports.GetMovie = async (req, res) => {
+exports.GetMovieById = async (req, res) => {
   try {
-    const Getmove = await Movie.findById(req.params.id);
-
-    res.status(200).json(Getmove);
-  } catch (error) {
-    console.log("GetMovie", error);
-    res.status(500).json(error);
+    const movie = await Movie.findById(req.params.id);
+    res.status(200).json(movie);
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
-
-//Get randomMovie
-exports.randomMovie = async (req, res) => {
+  
+  
+  
+  exports.GetRandomMovie = async (req, res) => {
   const type = req.query.type;
   let movie;
   try {
@@ -91,16 +83,17 @@ exports.randomMovie = async (req, res) => {
     res.status(500).json(err);
   }
 };
-// Get AllMovie
-exports.GetAllMovies = async (req, res) => {
-  if (req.user.isAdmin) {
-    try {
-      const movies = await Movie.find();
-      res.status(200).json(movies);
-    } catch (err) {
-      res.status(500).json(err);
+
+
+  exports.GetAllMovie = async (req, res) => {
+    if (req.user.isAdmin) {
+      try {
+        const movies = await Movie.find();
+        res.status(200).json(movies.reverse());
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    } else {
+      res.status(403).json("You are not allowed!");
     }
-  } else {
-    res.status(403).json("You are not allowed!");
-  }
-};
+  };

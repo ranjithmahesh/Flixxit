@@ -10,6 +10,8 @@ const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
 
+  console.log(genre);
+
   useEffect(() => {
     const getRandomLists = async () => {
       try {
