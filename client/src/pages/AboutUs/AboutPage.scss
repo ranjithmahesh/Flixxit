@@ -1,0 +1,65 @@
+// AboutPage.scss
+.about-page {
+    background: var(--main-color);
+    max-width: 100vw;
+    padding: 20px;
+
+    .container {
+        margin: 0 20px;
+        color: white;
+        margin-top: 75px;
+
+        h1 {
+            font-size: 2em;
+
+            border-bottom: 2px #282c2d solid;
+        }
+
+        section {
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+
+            h2 {
+                font-size: 1.2em;
+                margin-bottom: 10px;
+
+            }
+
+            h3 {
+                font-size: 0.9em;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 0.8em;
+            }
+        }
+
+        .feature-wrapper {
+            margin-bottom: 20px;
+
+            h3 {
+                font-size: 1em;
+
+            }
+
+            p {
+                font-size: 0.8em;
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+
+.wrapper_Info {
+    display: flex;
+    background: gray;
+    border-radius: 5px;
+    align-items: center;
+
+}

@@ -1,0 +1,29 @@
+.watchLate {
+
+    background: var(--main-color);
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    .container {
+        margin-top: 100px;
+        padding: 0 60px;
+
+
+        .listTitle {
+            color: white;
+            font-size: 40px;
+            padding: 5px 0;
+            border-bottom: 2px #282c2d solid;
+        }
+
+        .wrapper {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    }
+}

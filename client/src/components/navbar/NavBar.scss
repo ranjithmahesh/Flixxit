@@ -1,0 +1,155 @@
+// Import your global styles
+@import '../../index.scss';
+
+.NavBar {
+    color: white;
+    width: 100%;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, .3) 50%);
+
+    &.scrolled {
+        background-color: var(--main-color);
+    }
+
+    .container {
+        padding: 0 50px;
+        display: flex;
+        justify-content: space-between;
+        height: 70px;
+
+        .left {
+            display: flex;
+            align-items: center;
+            h1{
+                padding-right: 20px;
+                color: red;   
+            }
+
+            img {
+                height: 25px;
+                margin-right: 40px;
+                cursor: pointer;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+
+            span {
+                margin-right: 20px;
+                cursor: pointer;
+
+                &.navbarmainLinks {
+                    @include table {
+                        display: block;
+                    }
+                }
+
+                @include table {
+                    display: none;
+                }
+            }
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            .dontShowicon {
+                display: none;
+            }
+
+            .searchcontainer {
+                margin-top: -25px;
+
+@include table {
+        display: none;
+    }
+
+                .searchBar {
+                    display: flex;
+                    position: absolute;
+                    right: 175px;
+                    width: 400px;
+                    flex-direction: row;
+
+                    input {
+                        width: 100%;
+                    }
+                }
+            }
+
+            img {
+                height: 30px;
+                border-radius: 5px;
+                height: 30px;
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+
+        .icon {
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        .icon1{margin: 0 15px;
+            cursor: pointer;
+            @include table {
+                    display: none;
+                }
+        }
+
+        .profile {
+            .options {
+                display: none;
+                border-radius: 5px;
+                background-color: var(--main-color);
+            }
+
+            span {
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            &:hover {
+                .options {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                }
+            }
+        }
+    }
+}
+
+.searchResults {
+    margin-top: 25px; // Adjust the margin as needed
+    margin-right: 175px; // Adjust the margin as needed
+    position: absolute;
+    right: 0;
+    width: 350px; // Adjust the width as needed
+    background-color: white; // Adjust the background color as needed
+    border-radius: 5px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+
+    .card {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #ccc;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .result {
+            color: black;
+            font-size: 15px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    }
+}

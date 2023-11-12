@@ -1,0 +1,109 @@
+.profile_container {
+
+    background: var(--main-color);
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    .profile1 {
+
+        background-size: cover;
+        position: relative;
+
+        .container {
+            margin-top: 70px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+
+
+            .title {
+                font-weight: bold;
+                font-size: 30px;
+                color: white;
+                margin-left: auto;
+                margin-right: auto;
+                width: auto;
+                align-items: center;
+                border-bottom: 2px #282c2d solid;
+                padding-bottom: 10px; // Adjust the padding as needed
+                margin-bottom: 20px; // Adjust the margin as needed
+            }
+
+            .profile_reper {
+
+                display: flex;
+                flex-direction: row;
+
+
+
+                .profile_left {
+
+
+                    img {
+                        width: 100px;
+                        height: 100px;
+                        object-fit: cover;
+                    }
+                }
+
+                .profile_right {
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding-left: 10px;
+                    color: white;
+                    margin-top: -20px;
+
+
+                    h1 {
+                        background: gray;
+                        padding: 0 10px;
+                    }
+
+                    h2 {
+                        border-bottom: 2px #282c2d solid;
+                    }
+
+                    .plansTable {
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr); 
+                        gap: 5px;
+                        align-items: center;
+                        padding: -100px;
+
+                        .planeTitle,
+                        .planedes,
+                        .planePrice,
+                        .planeButton {
+
+                            padding: -10px 5px; // Adjust the padding as needed
+                        }
+
+                        p {
+                            color: gray;
+                            font-weight: 400;
+                        }
+
+
+                    }
+
+                    button {
+                       padding: 5px 10px;
+                        border-radius: 5px;
+                        background-color: red;
+                        color: white;
+                        border: none;
+                        font-size: 18px;
+                        font-weight: 500;
+                        cursor: pointer;
+                    }
+
+
+                }
+            }
+        }
+    }
+}
