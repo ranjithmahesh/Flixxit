@@ -28,7 +28,7 @@ function NavBar() {
         )
         .then((response) => {
           const movieDetails = response.data;
-          // Limit to the first 10 results
+       
           const first10Results = movieDetails.results.slice(0, 5);
           setSearchResults(first10Results);
         })
@@ -50,7 +50,7 @@ function NavBar() {
     { id: 1, name: "Home page", to: "/" },
     { id: 2, name: "Series", to: "/series", className: "navbarmainLinks" },
     { id: 3, name: "Movies", to: "/movies", className: "navbarmainLinks" },
-    { id: 4, name: "My List", to: "/mylist" },
+    { id: 4, name: "My List", to: "/mylist", className: "navbarmainLinks" },
     { id: 5, name: "About Us", to: "/about" },
   ];
 
@@ -59,7 +59,7 @@ function NavBar() {
       <div className="container">
         <div className="left">
           <Link to={"/"} className="link">
-           <h1>Flixxit </h1>
+            <h1>Flixxit </h1>
           </Link>
           {menuList.map((item) => (
             <Link key={item.id} to={item.to} className="link">
@@ -92,8 +92,8 @@ function NavBar() {
               </div>
             </div>
           )}
-          <span>KID</span>
-          <Notifications className="icon" />
+          <span className="icon1">KID</span>
+          <Notifications className="icon icon1" />
           <Link to={"/profile"}>
             <img
               src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"

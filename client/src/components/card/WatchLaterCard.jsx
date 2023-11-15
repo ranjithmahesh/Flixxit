@@ -8,8 +8,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "./WatchLaterCard.scss";
 import { BASE_URL } from "../../services/heapler";
+import "./WatchLaterCard.scss";
 
 function WatchLaterCard({ movie, setClicked }) {
   const user = useSelector((state) => state.user.user);
@@ -43,8 +43,7 @@ function WatchLaterCard({ movie, setClicked }) {
     }
   };
 
-  const trailer =
-    "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761";
+  
 
   return (
     <>
