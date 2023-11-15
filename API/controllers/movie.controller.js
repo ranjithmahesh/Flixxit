@@ -1,11 +1,7 @@
-const Movie = require("../models/movie.model");
-const verify = require("../utility/verifyToken");
+import Movie from "../models/movie.model.js";
+import verify from "../utility/verifyToken.js";
 
-
-
-
-
-exports.CreateMovie = async (req, res) => {
+export const CreateMovie = async (req, res) => {
   if (req.user.isAdmin) {
     const newMovie = new Movie(req.body);
     try {
@@ -19,7 +15,7 @@ exports.CreateMovie = async (req, res) => {
   }
 };
 
-exports.UpdateMovie = async (req, res) => {
+export const UpdateMovie = async (req, res) => {
   if (req.user.isAdmin) {
     try {
       const updatedMovie = await Movie.findByIdAndUpdate(
@@ -38,8 +34,7 @@ exports.UpdateMovie = async (req, res) => {
   }
 };
 
-
-exports.DeleteMovie = async (req, res) => {
+export const DeleteMovie = async (req, res) => {
   if (req.user.isAdmin) {
     try {
       await Movie.findByIdAndDelete(req.params.id);
@@ -52,7 +47,7 @@ exports.DeleteMovie = async (req, res) => {
   }
 };
 
-exports.GetMovieById = async (req, res) => {
+export const GetMovieById = async (req, res) => {
   try {
     const movie = await Movie.findById(req.params.id);
     res.status(200).json(movie);
@@ -60,10 +55,8 @@ exports.GetMovieById = async (req, res) => {
     res.status(500).json(err);
   }
 };
-  
-  
-  
-  exports.GetRandomMovie = async (req, res) => {
+
+export const GetRandomMovie = async (req, res) => {
   const type = req.query.type;
   let movie;
   try {
@@ -84,16 +77,15 @@ exports.GetMovieById = async (req, res) => {
   }
 };
 
-
-  exports.GetAllMovie = async (req, res) => {
-    if (req.user.isAdmin) {
-      try {
-        const movies = await Movie.find();
-        res.status(200).json(movies.reverse());
-      } catch (err) {
-        res.status(500).json(err);
-      }
-    } else {
-      res.status(403).json("You are not allowed!");
+export const GetAllMovie = async (req, res) => {
+  if (req.user.isAdmin) {
+    try {
+      const movies = await Movie.find();
+      res.status(200).json(movies.reverse());
+    } catch (err) {
+      res.status(500).json(err);
     }
-  };
+  } else {
+    res.status(403).json("You are not allowed!");
+  }
+};

@@ -1,11 +1,13 @@
-const router = require("express").Router();
-const {
+import { Router } from "express";
+import {
   CreateMovieList,
   DeleteMovieList,
   GetMovieList,
-} = require("../controllers/list.controler");
+} from "../controllers/list.controler.js";
 
-const verify = require("../utility/verifyToken");
+import verify from "../utility/verifyToken.js";
+
+const router = Router();
 
 //CREATE
 
@@ -19,4 +21,4 @@ router.delete("/:id", verify, DeleteMovieList);
 
 router.get("/", verify, GetMovieList);
 
-module.exports = router;
+export default router;

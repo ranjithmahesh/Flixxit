@@ -1,9 +1,8 @@
 import React from "react";
-import "./Profile.scss";
-import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../redux/user";
+import { useHistory } from "react-router-dom";
 import NavBar from "../../components/navbar/NavBar";
+import "./Profile.scss";
 
 function Profile() {
   const history = useHistory();

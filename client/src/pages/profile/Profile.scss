@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 .profile_container {
 
     background: var(--main-color);
@@ -27,8 +29,8 @@
                 width: auto;
                 align-items: center;
                 border-bottom: 2px #282c2d solid;
-                padding-bottom: 10px; // Adjust the padding as needed
-                margin-bottom: 20px; // Adjust the margin as needed
+                padding-bottom: 10px;
+                margin-bottom: 20px;
             }
 
             .profile_reper {
@@ -39,7 +41,9 @@
 
 
                 .profile_left {
-
+                    @include table {
+                        display: none;
+                    }
 
                     img {
                         width: 100px;
@@ -56,10 +60,10 @@
                     padding-left: 10px;
                     color: white;
                     margin-top: -20px;
+                    font-size: 20px;
 
 
                     h1 {
-                        background: gray;
                         padding: 0 10px;
                     }
 
@@ -68,18 +72,35 @@
                     }
 
                     .plansTable {
-                        display: grid;
-                        grid-template-columns: repeat(4, 1fr); 
+                        display: flex;
+
+@include table {width: 50%}
+                        width: 100%;
                         gap: 5px;
                         align-items: center;
-                        padding: -100px;
+
+
+                     
+
 
                         .planeTitle,
-                        .planedes,
                         .planePrice,
                         .planeButton {
+                            flex: 1;
 
                             padding: -10px 5px; // Adjust the padding as needed
+                        }
+
+                        .planedes {@include table {
+                               display: none;
+                            }
+
+ 
+                            flex: 3;
+                            width: 50%;
+                            flex-direction: row;
+                            text-align: left;
+                            margin-left: 20px;
                         }
 
                         p {
@@ -91,7 +112,7 @@
                     }
 
                     button {
-                       padding: 5px 10px;
+                        padding: 5px 10px;
                         border-radius: 5px;
                         background-color: red;
                         color: white;

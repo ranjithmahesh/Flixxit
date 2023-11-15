@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./WatchLaterCard.scss";
+import { BASE_URL } from "../../services/heapler";
 
 function WatchLaterCard({ movie, setClicked }) {
   const user = useSelector((state) => state.user.user);
@@ -26,7 +27,7 @@ function WatchLaterCard({ movie, setClicked }) {
       }
 
       const response = await axios.put(
-        "http://localhost:8000/api/user/remove",
+        `${BASE_URL}/api/user/remove`,
         { email: user.email, movieId: movie.id },
         {
           headers: {

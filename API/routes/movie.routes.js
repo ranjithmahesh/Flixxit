@@ -1,11 +1,17 @@
+import { Router } from "express";
+import {
+  CreateMovie,
+  DeleteMovie,
+  UpdateMovie,
+  GetMovieById,
+  GetRandomMovie,
+  GetAllMovie,
+} from "../controllers/movie.controller.js";
 
+import Movie from "../models/movie.model.js";
+import verify from "../utility/verifyToken.js";
 
-
-
-const router = require("express").Router();
-const { CreateMovie, DeleteMovie, UpdateMovie, GetMovieById, GetRandomMovie, GetAllMovie } = require("../controllers/movie.controller");
-const Movie = require("../models/movie.model");
-const verify = require("../utility/verifyToken");
+const router = Router();
 
 //CREATE
 
@@ -31,4 +37,4 @@ router.get("/random", verify, GetRandomMovie);
 
 router.get("/", verify, GetAllMovie);
 
-module.exports = router;
+export default router;

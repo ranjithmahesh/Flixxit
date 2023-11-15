@@ -1,10 +1,6 @@
-const List = require("../models/List.model");
-const verify = require("../utility/verifyToken");
+import List from "../models/List.model.js";
 
-
-
-
-exports.CreateMovieList = async (req, res) => {
+export const CreateMovieList = async (req, res) => {
   if (req.user.isAdmin) {
     const newList = new List(req.body);
     try {
@@ -18,7 +14,7 @@ exports.CreateMovieList = async (req, res) => {
   }
 };
 
-exports.DeleteMovieList = async (req, res) => {
+export const DeleteMovieList = async (req, res) => {
   if (req.user.isAdmin) {
     try {
       await List.findByIdAndDelete(req.params.id);
@@ -31,9 +27,7 @@ exports.DeleteMovieList = async (req, res) => {
   }
 };
 
-
-exports.GetMovieList = async (req, res) => {
-  console.log(req.query.type, req.query.genre);
+export const GetMovieList = async (req, res) => {
   const typeQuery = req.query.type;
   const genreQuery = req.query.genre;
   let list = [];

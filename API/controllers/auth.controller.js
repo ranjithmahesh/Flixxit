@@ -1,11 +1,11 @@
-const User = require("../models/user.model.js");
-const CryptoJS = require("crypto-js");
-const jwt = require("jsonwebtoken");
+import User from "../models/user.model.js";
+import CryptoJS from "crypto-js";
+import jwt from "jsonwebtoken";
+
+
 
 //Register
-exports.register =async (req, res) => {
-  console.log(req.body.email);
-
+export const register = async (req, res) => {
   try {
     const encryptedPassword = CryptoJS.AES.encrypt(
       req.body.password,
@@ -19,15 +19,20 @@ exports.register =async (req, res) => {
     });
 
     const user = await newUser.save();
+
     res.status(201).json(user);
   } catch (err) {
     console.error("Registration failed:", err.message);
+
+    if (err.code === 11000) {
+      return res.status(409).json("User with this email already exists");
+    }
+
     res.status(500).json("Registration failed. Please try again.");
   }
-}
+};
 // login
-exports.login = async (req, res) => {
-  console.log(req.body.email, req.body.password);
+export const login = async (req, res) => {
 
   try {
     const user = await User.findOne({ email: req.body.email });

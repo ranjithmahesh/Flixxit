@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "./Register.scss";
+import { BASE_URL } from "../../services/heapler";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -28,25 +29,22 @@ export default function Register() {
 
     setUsername(generatedUsername);
     try {
-      await axios.post("http://localhost:8000/api/auth/register", {
-        username: generatedUsername,
-        email,
-        password,
-      });
-
-      console.log({
+      await axios.post(`${BASE_URL}/api/auth/register`, {
         username: generatedUsername,
         email,
         password,
       });
 
       history.push("/login");
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
+      if (err.response && err.response.status === 409) {
+        alert("User already exists. Please try another email.");
+      }
     }
   };
 
-  // Function to generate a random ID
+
   const generateRandomId = () => {
     return uuidv4();
   };
@@ -55,7 +53,6 @@ export default function Register() {
     <div className="register">
       <div className="top">
         <div className="wrapper">
-         
           <h1 className="logo">Flixxit </h1>
           <button
             className="loginButton"

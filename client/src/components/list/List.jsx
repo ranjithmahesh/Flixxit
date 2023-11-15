@@ -28,7 +28,6 @@ function List({ list }) {
     }
   };
 
-  console.log("List component rendering. List data:", list);
 
   return (
     <div className="list">

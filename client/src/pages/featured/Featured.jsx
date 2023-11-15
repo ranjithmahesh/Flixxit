@@ -3,6 +3,7 @@ import "./Featured.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../services/heapler";
 
 function Featured({ type, setGenre }) {
   const genreList = [
@@ -27,7 +28,7 @@ function Featured({ type, setGenre }) {
     const getRandomContent = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/movies/random?type=${type}`,
+          `${BASE_URL}/api/movies/random?type=${type}`,
           {
             headers: {
               token:

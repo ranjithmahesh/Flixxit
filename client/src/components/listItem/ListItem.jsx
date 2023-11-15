@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ListItem.scss";
 import { useSelector } from "react-redux";
+import { BASE_URL } from "../../services/heapler";
 
 function ListItem({ index, item }) {
   const user = useSelector((state) => state.user.user);
@@ -22,7 +23,7 @@ function ListItem({ index, item }) {
     const getMovies = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/movies/find/${item}`,
+          `${BASE_URL}/api/movies/find/${item}`,
           {
             headers: {
               token:
@@ -48,7 +49,7 @@ function ListItem({ index, item }) {
       const newMovie = { ...movie, id: generateUniqueId() };
 
       await axios.post(
-        `http://localhost:8000/api/user/add`,
+        `${BASE_URL}/api/user/add`,
         { email: user.email, data: newMovie },
         {
           headers: {
@@ -106,7 +107,7 @@ function ListItem({ index, item }) {
           <video src={movie.trailer} autoPlay={true} loop />
           <div className="itemInfo">
             <div className="icons">
-              <Link to={{ pathname: "/watch", movie: movie }}>
+              <Link to={{ pathname: "/watch" }}>
                 <PlayArrow className="icon" />
               </Link>
               <Add

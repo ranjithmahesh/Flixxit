@@ -5,18 +5,19 @@ import List from "../../components/list/List";
 import Navbar from "../../components/navbar/NavBar";
 import Featured from "../featured/Featured";
 import "./Home.scss";
+import { BASE_URL } from "../../services/heapler";
 
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
 
-  console.log(genre);
+ 
 
   useEffect(() => {
     const getRandomLists = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/lists${type ? "?type=" + type : ""}${
+          `${BASE_URL}/api/lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
           }`,
           {

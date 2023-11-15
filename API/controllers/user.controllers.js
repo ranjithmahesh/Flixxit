@@ -1,9 +1,9 @@
-const User = require("../models/user.model.js");
-const CryptoJS = require("crypto-js");
-const jwt = require("jsonwebtoken");
+import User from "../models/user.model.js";
+import CryptoJS from "crypto-js";
+import jwt from "jsonwebtoken";
 
 //UpdateUser
-exports.UpdateUser = async (req, res) => {
+export const UpdateUser = async (req, res) => {
   if (req.user.id === req.params.id || req.user.isAdmin) {
     if (req.body.password) {
       req.body.password = CryptoJS.AES.encrypt(
@@ -32,7 +32,7 @@ exports.UpdateUser = async (req, res) => {
 };
 
 //DeleteUser
-exports.DeleteUser = async (req, res) => {
+export const DeleteUser = async (req, res) => {
   if (req.user.id === req.params.id || req.user.isAdmin) {
     try {
       await User.findByIdAndDelete(req.params.id);
@@ -46,7 +46,7 @@ exports.DeleteUser = async (req, res) => {
     res.status(500).json("You can Delete only Your acc");
   }
 };
-exports.addToLikedMovies = async (req, res) => {
+export const addToLikedMovies = async (req, res) => {
   try {
     const { email, data } = req.body;
     const user = await User.findOne({ email });
@@ -58,10 +58,10 @@ exports.addToLikedMovies = async (req, res) => {
       const movieAlreadyLiked = likedMovies.find(({ id }) => id === data.id);
 
       if (!movieAlreadyLiked) {
-        user.likedMovies.push(data); // Modify the document in memory
-        await user.save(); // Save the modified document
+        user.likedMovies.push(data);
+        await user.save(); 
 
-        console.log("Movie added successfully");
+        // console.log("Movie added successfully");
         return res.json({ msg: "Movie added successfully" });
       } else {
         console.log("Movie already added to the liked list");
@@ -77,7 +77,7 @@ exports.addToLikedMovies = async (req, res) => {
   }
 };
 
-exports.getLikedMovies = async (req, res) => {
+export const getLikedMovies = async (req, res) => {
   try {
     const { email } = req.params;
     const user = await User.findOne({ email });
@@ -93,12 +93,9 @@ exports.getLikedMovies = async (req, res) => {
   }
 };
 
-
-
-exports.removeLikedMovies = async (req, res) => {
+export const removeLikedMovies = async (req, res) => {
   try {
     const { email, movieId } = req.body;
-
 
     const user = await User.findOne({ email });
 
@@ -120,7 +117,7 @@ exports.removeLikedMovies = async (req, res) => {
     // Update the user document with the modified likedMovies array
     const updatedUser = await User.findByIdAndUpdate(
       user._id,
-      { likedMovies }, 
+      { likedMovies },
       { new: true }
     );
 

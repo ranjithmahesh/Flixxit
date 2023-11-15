@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 .register {
     width: 100vw;
     height: 100vh;
@@ -47,15 +49,27 @@
         justify-content: center;
         color: white;
 
+   
+
         h1 {
             font-size: 50px;
+            @include table {
+                font-size: 30px;
+               padding: 0 30px;
+                }
         }
 
         h2 {
+            @include table {
+                    display: none;
+                }
             margin: 20px;
         }
 
         p {
+            @include table {
+                    display: none;
+                }
             font-size: 20px;
         }
 
@@ -68,12 +82,14 @@
             margin-top: 20px;
             height: 50px;
             border-radius: 5px;
+            flex-wrap: wrap;
 
             input {
                 flex: 9;
                 height: 100%;
                 border: none;
                 padding: 0 10px;
+                   flex-wrap: wrap;
             }
 
             .registerButton {
@@ -83,7 +99,7 @@
                 border: none;
                 color: white;
                 font-size: 22px;
-                cursor: pointer;
+                cursor: pointer;   flex-wrap: wrap;
             }
         }
     }

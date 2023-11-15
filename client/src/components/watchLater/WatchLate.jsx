@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import WatchLaterCard from "../card/WatchLaterCard";
 import NavBar from "../navbar/NavBar";
 import "./WatchLate.scss";
+import { BASE_URL } from "../../services/heapler";
 
 function WatchLate() {
   const [clicked, setClicked] = useState(false);
@@ -15,7 +16,7 @@ function WatchLate() {
     const getLiledMovieLists = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/user/liked/${email}`,
+          `${BASE_URL}/api/user/liked/${email}`,
           {
             headers: {
               token:

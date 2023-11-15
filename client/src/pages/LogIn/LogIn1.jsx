@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login } from "../../redux/user";
 import "./LogIn1.scss";
+import { BASE_URL } from "../../services/heapler";
 
 function LogIn1() {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ function LogIn1() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/api/auth/login", {
+      const res = await axios.post(`${BASE_URL}/api/auth/login`, {
         email,
         password,
       });

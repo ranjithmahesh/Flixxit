@@ -1,13 +1,15 @@
-const router = require("express").Router();
-
-const verify = require("../utility/verifyToken");
-const {
+import { Router } from "express";
+import verify from "../utility/verifyToken.js";
+import {
   UpdateUser,
   DeleteUser,
   addToLikedMovies,
   getLikedMovies,
   removeLikedMovies,
-} = require("../controllers/user.controllers");
+} from "../controllers/user.controllers.js";
+
+const router = Router();
+
 //UPDATE
 
 // router.put("/:id", verify, UpdateUser);
@@ -16,4 +18,4 @@ router.post("/add", verify, addToLikedMovies);
 router.get("/liked/:email", verify, getLikedMovies);
 router.put("/remove", verify, removeLikedMovies);
 
-module.exports = router;
+export default router;

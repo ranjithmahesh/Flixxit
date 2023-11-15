@@ -1,16 +1,18 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const cors = require("cors");
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors";
+
 dotenv.config();
 
-const authRoute = require("./routes/auth.routes.js");
-const userRoute = require("./routes/user.routes.js");
-const movieRoute = require("./routes/movie.routes.js");
-const ListRoute = require("./routes/List.routes.js");
+import authRoute from "./routes/auth.routes.js";
+import userRoute from "./routes/user.routes.js";
+import movieRoute from "./routes/movie.routes.js";
+import ListRoute from "./routes/List.routes.js";
 
 const app = express();
-PORT = process.env.PORT || 5001;
+
+const PORT = process.env.PORT || 5001;
 app.use(express.json());
 mongoose
   .connect(process.env.MONGO_URL)
@@ -24,14 +26,7 @@ mongoose
 // app.use("/i", (req, res) => {
 //   res.json({ message: "tdvhbj" });
 // });
-
-app.use(
-  cors({
-    origin: ["https://deploy-mern-lwhq.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/movies", movieRoute);
