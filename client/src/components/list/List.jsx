@@ -1,11 +1,9 @@
 // List.jsx
 import "./List.scss";
-import {
-  ArrowBackIosOutlined,
-  ArrowForwardIosOutlined,
-} from "@material-ui/icons";
-import ListItem from "../listItem/ListItem";
+
+import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
 import { useRef, useState } from "react";
+import ListItem from "../listItem/ListItem";
 
 function List({ list }) {
   const listRef = useRef();
@@ -27,7 +25,6 @@ function List({ list }) {
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
     }
   };
-
 
   return (
     <div className="list">

@@ -1,4 +1,4 @@
-import { PlayArrow, InfoOutlined } from "@material-ui/icons";
+import { PlayArrow, InfoOutlined } from "@mui/icons-material";
 import "./Featured.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -44,7 +44,6 @@ function Featured({ type, setGenre }) {
     };
     getRandomContent();
   }, [type]);
-
 
   return (
     <div className="featured">

@@ -3,7 +3,7 @@ import {
   PlayArrow,
   ThumbDownOutlined,
   ThumbUpAltOutlined,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -42,8 +42,6 @@ function WatchLaterCard({ movie, setClicked }) {
       console.error(error);
     }
   };
-
-  
 
   return (
     <>

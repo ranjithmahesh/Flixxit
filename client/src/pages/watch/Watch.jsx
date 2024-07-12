@@ -1,4 +1,5 @@
-import ArrowBackOutlinedIcon from "@material-ui/icons/ArrowBackOutlined";
+import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+
 import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
@@ -7,7 +8,7 @@ import viedo1 from "../../utility/viedo/viedo1.mp4";
 import viedo2 from "../../utility/viedo/viedo2.mp4";
 import viedo3 from "../../utility/viedo/viedo3.mp4";
 
-const videoList = [viedo1,viedo2, viedo3];
+const videoList = [viedo1, viedo2, viedo3];
 
 export default function Watch() {
   const [randomVideo, setRandomVideo] = useState("");

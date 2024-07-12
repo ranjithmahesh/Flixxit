@@ -3,7 +3,7 @@ import {
   PlayArrow,
   ThumbDownOutlined,
   ThumbUpAltOutlined,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -22,16 +22,12 @@ function ListItem({ index, item }) {
   useEffect(() => {
     const getMovies = async () => {
       try {
-        const res = await axios.get(
-          `${BASE_URL}/api/movies/find/${item}`,
-          {
-            headers: {
-              token:
-                "Bearer " +
-                JSON.parse(localStorage.getItem("user")).accessToken,
-            },
-          }
-        );
+        const res = await axios.get(`${BASE_URL}/api/movies/find/${item}`, {
+          headers: {
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        });
 
         setMovie(res.data);
       } catch (error) {
@@ -69,8 +65,6 @@ function ListItem({ index, item }) {
   const generateUniqueId = () => {
     return Math.random().toString(36).substring(2) + Date.now().toString(36);
   };
-
-
 
   const increment = () => {
     if (!likedMove) {
