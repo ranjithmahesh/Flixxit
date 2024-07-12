@@ -1,1 +1,1 @@
-export const BASE_URL = "https://flixxit-6m6z.onrender.com";
+export const BASE_URL = "http://localhost:8000";

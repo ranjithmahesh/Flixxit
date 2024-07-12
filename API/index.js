@@ -3,12 +3,11 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 
-dotenv.config();
-
 import authRoute from "./routes/auth.routes.js";
 import userRoute from "./routes/user.routes.js";
 import movieRoute from "./routes/movie.routes.js";
 import ListRoute from "./routes/List.routes.js";
+dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -23,9 +22,9 @@ mongoose
     console.log(err);
   });
 
-// app.use("/i", (req, res) => {
-//   res.json({ message: "tdvhbj" });
-// });
+app.get("/health", (req, res) => {
+  res.json({ message: "tdvhbj" });
+});
 
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);

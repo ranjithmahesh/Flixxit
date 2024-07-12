@@ -22,7 +22,7 @@ function LogIn1() {
 
       dispatch(login(res.data));
       console.log(res.data);
-      history.push("/");
+      history.push("/dashboard");
     } catch (err) {
       console.log(err);
 
