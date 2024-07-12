@@ -1,1 +1,1 @@
-export const BASE_URL = "https://apibackend-qq34.onrender.com";
+export const BASE_URL = "https://flixxit-6m6z.onrender.com";
