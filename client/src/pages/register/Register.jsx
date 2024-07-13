@@ -35,7 +35,7 @@ export default function Register() {
         password,
       });
 
-      history.push("/login");
+      history.push("/");
     } catch (err) {
       console.log(err);
       if (err.response && err.response.status === 409) {
@@ -57,7 +57,7 @@ export default function Register() {
           <button
             className="loginButton"
             onClick={() => {
-              history.push("/login");
+              history.push("/");
             }}
           >
             Sign In
