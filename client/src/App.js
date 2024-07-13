@@ -8,7 +8,6 @@ import Login1 from "./pages/LogIn/LogIn1";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
-
 import { useSelector } from "react-redux";
 import Profile from "./pages/profile/Profile";
 import WatchLate from "./components/watchLater/WatchLate";
@@ -16,15 +15,18 @@ import AboutPage from "./pages/AboutUs/AboutPage";
 
 const App = () => {
   const user = useSelector((state) => state.user.user);
+  
   return (
     <Router>
       <Switch>
-        <Route path="/dashboard">{user ? <Home /> : <Redirect to="/" />}</Route>
+        <Route exact path="/">
+          {!user ? <Login1 /> : <Redirect to="/dashboard" />}
+        </Route>
         <Route path="/register">
           {!user ? <Register /> : <Redirect to="/dashboard" />}
         </Route>
-        <Route index path="/">
-          {!user ? <Login1 /> : <Redirect to="/dashboard" />}
+        <Route path="/dashboard">
+          {user ? <Home /> : <Redirect to="/" />}
         </Route>
         {user && (
           <>
@@ -48,6 +50,10 @@ const App = () => {
             </Route>
           </>
         )}
+        {/* Catch-all route */}
+        <Route path="*">
+          <Redirect to="/" />
+        </Route>
       </Switch>
     </Router>
   );

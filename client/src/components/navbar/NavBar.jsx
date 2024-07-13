@@ -47,7 +47,7 @@ function NavBar() {
   };
 
   const menuList = [
-    { id: 1, name: "Home page", to: "/" },
+    { id: 1, name: "Home page", to: "/dashboard" },
     { id: 2, name: "Series", to: "/series", className: "navbarmainLinks" },
     { id: 3, name: "Movies", to: "/movies", className: "navbarmainLinks" },
     { id: 4, name: "My List", to: "/mylist", className: "navbarmainLinks" },
@@ -58,7 +58,7 @@ function NavBar() {
     <div className={isScrolled ? "NavBar scrolled" : "NavBar"}>
       <div className="container">
         <div className="left">
-          <Link to={"/"} className="link">
+          <Link to={"/dashboard"} className="link">
             <h1>Flixxit </h1>
           </Link>
           {menuList.map((item) => (
